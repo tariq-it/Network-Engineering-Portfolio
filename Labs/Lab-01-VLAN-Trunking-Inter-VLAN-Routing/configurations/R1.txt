@@ -1,0 +1,50 @@
+!
+! Lab 01 - Router-on-a-Stick
+! Device: R1
+! Sanitized portfolio configuration
+!
+hostname R1
+!
+ip cef
+no ipv6 cef
+!
+interface Ethernet0/0
+ description 802.1Q_TRUNK_TO_SW1
+ no ip address
+ no shutdown
+!
+interface Ethernet0/0.10
+ description VLAN10_USERS_GATEWAY
+ encapsulation dot1Q 10
+ ip address 192.168.10.1 255.255.255.0
+!
+interface Ethernet0/0.20
+ description VLAN20_IT_GATEWAY
+ encapsulation dot1Q 20
+ ip address 192.168.20.1 255.255.255.0
+!
+interface Ethernet0/0.30
+ description VLAN30_SERVERS_GATEWAY
+ encapsulation dot1Q 30
+ ip address 192.168.30.1 255.255.255.0
+!
+interface Ethernet0/1
+ no ip address
+ shutdown
+!
+interface Ethernet0/2
+ no ip address
+ shutdown
+!
+interface Ethernet0/3
+ no ip address
+ shutdown
+!
+no ip http server
+no ip http secure-server
+!
+line con 0
+ logging synchronous
+!
+end
+

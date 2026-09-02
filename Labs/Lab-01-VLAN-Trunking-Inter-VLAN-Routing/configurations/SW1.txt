@@ -1,0 +1,61 @@
+!
+! Lab 01 - VLANs and 802.1Q Trunking
+! Device: SW1
+! Sanitized portfolio configuration
+!
+hostname SW1
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+vlan 10
+ name USERS
+!
+vlan 20
+ name IT
+!
+vlan 30
+ name SERVERS
+!
+interface Ethernet0/0
+ description 802.1Q_TRUNK_TO_R1
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 10,20,30
+ switchport mode trunk
+ no shutdown
+!
+interface Ethernet0/1
+ description PC_USERS_VLAN10
+ switchport access vlan 10
+ switchport mode access
+ spanning-tree portfast
+ no shutdown
+!
+interface Ethernet0/2
+ description PC_IT_VLAN20
+ switchport access vlan 20
+ switchport mode access
+ spanning-tree portfast
+ no shutdown
+!
+interface Ethernet0/3
+ description PC_SERVERS_VLAN30
+ switchport access vlan 30
+ switchport mode access
+ spanning-tree portfast
+ no shutdown
+!
+interface Vlan20
+ description SWITCH_MANAGEMENT
+ ip address 192.168.20.2 255.255.255.0
+ no shutdown
+!
+ip default-gateway 192.168.20.1
+!
+no ip http server
+!
+line con 0
+ logging synchronous
+!
+end
+
