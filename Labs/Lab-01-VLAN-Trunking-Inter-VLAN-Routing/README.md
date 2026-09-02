@@ -94,7 +94,7 @@ Additional validation and troubleshooting steps are documented in [Verification 
 
 ## Video Walkthrough
 
-[Watch the Lab 01 walkthrough](video/lab-01-inter-vlan-routing-demo.mp4)
+https://github.com/user-attachments/assets/741a7258-68ea-44b4-b1c2-eb3000c32a3b
 
 The short demonstration shows the completed topology and successful communication between devices in different VLANs.
 
