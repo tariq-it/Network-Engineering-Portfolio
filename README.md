@@ -11,8 +11,10 @@ This portfolio documents my practical learning through reproducible labs—from 
 ## Labs
 
 | ID | Lab | Vendors | Technologies | Platform | Status |
-|:--:|---|---|---|---|:--:|
-| 01 | VLAN, Trunking & Inter-VLAN Routing | Cisco | VLANs, 802.1Q, Router-on-a-Stick | EVE-NG | In preparation |
+|---|---|---|---|---|---|
+| 01 | [VLAN, Trunking & Inter-VLAN Routing](Labs/Lab-01-VLAN-Trunking-Inter-VLAN-Routing) | Cisco | VLANs, 802.1Q, Router-on-a-Stick | EVE-NG | Completed |
+| 02 | [MikroTik Bridge + VLAN Filtering](Labs/Lab-02-MikroTik-Bridge-VLAN-Filtering) | MikroTik | Bridge VLAN Filtering, Access Ports, 802.1Q Trunk | EVE-NG | Completed |
+
 
 ## Lab Structure
 
