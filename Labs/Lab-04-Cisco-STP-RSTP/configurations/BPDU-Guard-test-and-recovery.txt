@@ -1,0 +1,42 @@
+! Temporary controlled test only.
+! Configure SW1 Ethernet0/2 as the BPDU source.
+SW1# configure terminal
+SW1(config)# interface ethernet0/2
+SW1(config-if)# description BPDU_SOURCE_TEST
+SW1(config-if)# switchport mode access
+SW1(config-if)# switchport access vlan 10
+SW1(config-if)# no shutdown
+SW1(config-if)# end
+
+! Configure SW3 Ethernet0/3 as a protected edge port.
+SW3# configure terminal
+SW3(config)# interface ethernet0/3
+SW3(config-if)# description BPDU_GUARD_TEST
+SW3(config-if)# switchport mode access
+SW3(config-if)# switchport access vlan 10
+SW3(config-if)# spanning-tree portfast
+SW3(config-if)# spanning-tree bpduguard enable
+SW3(config-if)# no shutdown
+SW3(config-if)# end
+
+! Temporarily connect SW1 Ethernet0/2 to SW3 Ethernet0/3.
+! Verify the local protection action on SW3.
+SW3# show interfaces status err-disabled
+SW3# show logging | include BPDU
+SW3# show logging | include ERR_DISABLE
+
+! Remove the temporary physical link before recovery.
+! Return both test ports to default configuration.
+SW1# configure terminal
+SW1(config)# default interface ethernet0/2
+SW1(config)# end
+
+SW3# configure terminal
+SW3(config)# default interface ethernet0/3
+SW3(config)# interface ethernet0/3
+SW3(config-if)# shutdown
+SW3(config-if)# no shutdown
+SW3(config-if)# end
+
+SW3# show interfaces status err-disabled
+

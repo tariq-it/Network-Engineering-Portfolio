@@ -1,0 +1,20 @@
+SW3#show spanning-tree vlan 10
+
+VLAN0010
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    24586
+             Address     aabb.cc00.1000
+             Cost        200
+             Port        2 (Ethernet0/1)
+
+Interface           Role Sts Cost      Prio.Nbr Type
+------------------- ---- --- --------- -------- --------------------------------
+Et0/1               Root FWD 100       128.2    Shr
+Et0/2               Desg FWD 100       128.3    Shr
+
+Observed connectivity result:
+- Failed interface: SW3 Ethernet0/0
+- Backup path: SW3 -> SW2 -> SW1
+- Root path cost: 200
+- Continuous ping: 6 Request timed out messages
+

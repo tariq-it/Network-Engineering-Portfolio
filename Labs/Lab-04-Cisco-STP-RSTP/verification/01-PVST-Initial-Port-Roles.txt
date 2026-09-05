@@ -1,0 +1,43 @@
+SW1#show spanning-tree vlan 10
+
+VLAN0010
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    24586
+             Address     aabb.cc00.1000
+             This bridge is the root
+
+Interface           Role Sts Cost      Prio.Nbr Type
+------------------- ---- --- --------- -------- --------------------------------
+Et0/0               Desg FWD 100       128.1    Shr
+Et0/1               Desg FWD 100       128.2    Shr
+
+SW2#show spanning-tree vlan 10
+
+VLAN0010
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    24586
+             Address     aabb.cc00.1000
+             Cost        100
+             Port        1 (Ethernet0/0)
+
+Interface           Role Sts Cost      Prio.Nbr Type
+------------------- ---- --- --------- -------- --------------------------------
+Et0/0               Root FWD 100       128.1    Shr
+Et0/1               Desg FWD 100       128.2    Shr
+Et0/2               Desg FWD 100       128.3    Shr
+
+SW3#show spanning-tree vlan 10
+
+VLAN0010
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    24586
+             Address     aabb.cc00.1000
+             Cost        100
+             Port        1 (Ethernet0/0)
+
+Interface           Role Sts Cost      Prio.Nbr Type
+------------------- ---- --- --------- -------- --------------------------------
+Et0/0               Root FWD 100       128.1    Shr
+Et0/1               Altn BLK 100       128.2    Shr
+Et0/2               Desg FWD 100       128.3    Shr
+

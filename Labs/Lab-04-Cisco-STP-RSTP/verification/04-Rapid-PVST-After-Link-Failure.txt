@@ -1,0 +1,24 @@
+SW3#show spanning-tree vlan 10
+
+VLAN0010
+  Spanning tree enabled protocol rstp
+  Root ID    Priority    24586
+             Address     aabb.cc00.1000
+             Cost        200
+             Port        2 (Ethernet0/1)
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    32778  (priority 32768 sys-id-ext 10)
+             Address     aabb.cc00.3000
+
+Interface           Role Sts Cost      Prio.Nbr Type
+------------------- ---- --- --------- -------- --------------------------------
+Et0/1               Root FWD 100       128.2    P2p
+Et0/2               Desg FWD 100       128.3    Shr Edge
+
+Observed connectivity result:
+- Failed interface: SW3 Ethernet0/0
+- Backup path: SW3 -> SW2 -> SW1
+- Root path cost: 200
+- Continuous ping: no observed packet loss
+

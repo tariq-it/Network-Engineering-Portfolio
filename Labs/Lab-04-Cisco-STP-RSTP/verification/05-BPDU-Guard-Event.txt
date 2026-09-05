@@ -1,0 +1,17 @@
+SW3#show interfaces status err-disabled
+
+Port      Name                 Status        Reason       Err-disabled Vlans
+Et0/3     BPDU_GUARD_TEST      err-disabled  bpduguard
+
+SW3#show logging | include BPDU
+%SPANTREE-2-BLOCK_BPDUGUARD: Received BPDU on port Et0/3 with BPDU Guard enabled. Disabling port.
+
+SW3#show logging | include ERR_DISABLE
+%PM-4-ERR_DISABLE: bpduguard error detected on Et0/3, putting Et0/3 in err-disable state
+
+Recovery procedure:
+1. Remove the temporary SW1 Ethernet0/2 to SW3 Ethernet0/3 link.
+2. Return both test ports to default configuration.
+3. Apply shutdown followed by no shutdown on SW3 Ethernet0/3.
+4. Confirm that show interfaces status err-disabled returns no ports.
+

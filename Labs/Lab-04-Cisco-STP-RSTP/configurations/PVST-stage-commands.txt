@@ -1,0 +1,30 @@
+! Apply to all switches before the PVST test.
+configure terminal
+spanning-tree mode pvst
+end
+
+! Apply only to SW1.
+configure terminal
+spanning-tree vlan 10 root primary
+end
+
+! Apply only to SW2.
+configure terminal
+spanning-tree vlan 10 root secondary
+end
+
+! Run on each switch for verification.
+show spanning-tree vlan 10
+
+! Controlled failure on SW3 while Win2 continuously pings Win1.
+configure terminal
+interface ethernet0/0
+ shutdown
+end
+
+! Restore the preferred link after verification.
+configure terminal
+interface ethernet0/0
+ no shutdown
+end
+
