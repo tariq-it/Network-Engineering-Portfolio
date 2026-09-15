@@ -1,0 +1,18 @@
+Lab 06 - Cisco Switch Notes
+===========================
+
+SW1 - OFFICE
+- FortiGate port2 uplink: Ethernet0/0
+- Win1: Ethernet0/1
+- Win2: Ethernet0/2
+- Hosts operated in the same Layer 2 LAN.
+- Same-LAN ping was successful.
+
+SW2 - STAFF
+- FortiGate port3 uplink: Ethernet0/0
+- Win3: Ethernet0/1
+- Win4: Ethernet0/2
+- Hosts operated in the same Layer 2 LAN.
+- Same-LAN ping was successful.
+
+No custom switch configuration was required/documented during the completed portion of this lab.
