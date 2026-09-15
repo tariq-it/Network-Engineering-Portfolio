@@ -1,0 +1,32 @@
+! SW2 - Lab 07 EtherChannel LACP
+enable
+configure terminal
+
+vlan 10
+ name ADMIN
+vlan 20
+ name IT
+exit
+
+interface range ethernet0/0 - 2
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ channel-group 1 mode passive
+ no shutdown
+exit
+
+interface port-channel 1
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+exit
+
+interface ethernet0/3
+ description WIN2-ADMIN
+ switchport mode access
+ switchport access vlan 10
+ spanning-tree portfast
+ no shutdown
+exit
+
+end
+write memory
